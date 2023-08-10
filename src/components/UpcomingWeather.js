@@ -50,6 +50,7 @@ const DATA = [
 ]
 
 const Item = (props) => {
+  //child
   const { dt_txt, min, max, condition } = props
   return (
     <View style={styles.item}>
