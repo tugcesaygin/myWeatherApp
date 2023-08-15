@@ -8,21 +8,50 @@ import {
   StatusBar
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import IconText from '../components/IconText'
 
 const City = () => {
+  //destructuring
+  const {
+    countryName,
+    container,
+    cityName,
+    populationWrapper,
+    populationText,
+    countryText,
+    riseSetText,
+    riseSetWrapper
+  } = styles
+
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/seoul.jpg')}
         style={styles.imageLayout}
       >
-        <Text style={[styles.cityName, styles.countryText]}>Seoul</Text>
-        <Text style={[styles.countryName, styles.countryText]}>
-          South Korea
-        </Text>
-        <View style={styles.populationWrapper}>
-          <Feather name={'user'} size={50} color={'blue'} />
-          <Text style={styles.populationText}>8000</Text>
+        <Text style={[cityName, countryText]}>Seoul</Text>
+        <Text style={[countryName, countryText]}>South Korea</Text>
+        <View style={populationWrapper}>
+          <IconText
+            iconName={'user'}
+            iconColor={'red'}
+            bodyText={8000}
+            bodyTextStyles={[populationText, styles.rowLayout]}
+          />
+        </View>
+        <View style={[riseSetWrapper, styles.rowLayout]}>
+          <IconText
+            iconName={'sunrise'}
+            iconColor={'white'}
+            bodyText={'10:28:56'}
+            bodyTextStyles={riseSetText}
+          />
+          <IconText
+            iconName={'sunset'}
+            iconColor={'white'}
+            bodyText={'17:40:56'}
+            bodyTextStyles={riseSetText}
+          />
         </View>
       </ImageBackground>
     </SafeAreaView>
@@ -50,16 +79,25 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   populationWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'center',
     marginTop: 30
   },
   populationText: {
     fontSize: 25,
     marginLeft: 7.5,
-    color: 'blue',
-    fontWeight: 'bold'
+    color: '#FC4F00'
+  },
+  riseSetWrapper: {
+    justifyContent: 'space-around',
+    marginTop: 30
+  },
+  riseSetText: {
+    fontSize: 20,
+    color: 'white'
+  },
+  rowLayout: {
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 })
 export default City
