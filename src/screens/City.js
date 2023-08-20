@@ -20,14 +20,16 @@ const City = () => {
     populationText,
     countryText,
     riseSetText,
-    riseSetWrapper
+    riseSetWrapper,
+    rowLayout,
+    imageLayout
   } = styles
 
   return (
     <SafeAreaView style={container}>
       <ImageBackground
         source={require('../../assets/seoul.jpg')}
-        style={styles.imageLayout}
+        style={imageLayout}
       >
         <Text style={[cityName, countryText]}>Seoul</Text>
         <Text style={[countryName, countryText]}>South Korea</Text>
@@ -36,10 +38,10 @@ const City = () => {
             iconName={'user'}
             iconColor={'red'}
             bodyText={8000}
-            bodyTextStyles={[populationText, styles.rowLayout]}
+            bodyTextStyles={[populationText, rowLayout]}
           />
         </View>
-        <View style={[riseSetWrapper, styles.rowLayout]}>
+        <View style={[riseSetWrapper, rowLayout]}>
           <IconText
             iconName={'sunrise'}
             iconColor={'white'}
