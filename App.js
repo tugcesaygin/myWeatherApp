@@ -1,10 +1,11 @@
 import React, { useState , useEffect} from 'react'
 import { View , ActivityIndicator, StyleSheet} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import Tabs from './src/components/Tabs'
-import Counter from './src/demonstation/Counter' // youtube dan bul bunu
+import Tabs from './src/navigation/Tabs'
+import Counter from './src/demonstration/Counter' // youtube dan bul bunu
 import * as Location from 'expo-location'
 import { WEATHER_API_KEY } from '@env'
+import FavoriteCities from './src/screens/FavoriteCities'
 //api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
 
@@ -61,7 +62,7 @@ const fetchWeather = async () => {
 
   return (
     <NavigationContainer>
-     <Tabs/>
+     <FavoriteCities/>
     </NavigationContainer>
   )
 
