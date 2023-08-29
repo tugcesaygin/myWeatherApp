@@ -10,7 +10,7 @@ import FavoriteCities from './src/screens/FavoriteCities'
 
 
 const App = () => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const [location, setLocation] = useState(null)
   const [error,setError] = useState(null)
   const [weather,setWeather] = useState([])
@@ -18,6 +18,7 @@ const App = () => {
   const [lat,setLat] = useState()
   const [lon,setLon] = useState()
 
+  
 
 const fetchWeather = async () => {
   try{
@@ -49,6 +50,7 @@ const fetchWeather = async () => {
 
   if (weather){
     //console.log("Hava Durumu Geldi:", weather);
+    console.log(WEATHER_API_KEY)
   }
 
   if (loading){
