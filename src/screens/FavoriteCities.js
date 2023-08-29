@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import { StyleSheet, ScrollView, SafeAreaView, View, Text, Image } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import CityCard from '../components/CityCard'
 
 const FavoriteCities = () => {
 
     const [data, setData] = useState([
-        { id: 1, text: 'Öğe 1' },
-        { id: 2, text: 'Öğe 2' },
-        { id: 2, text: 'Öğe 2' },
-        { id: 2, text: 'Öğe 2' },
-        { id: 2, text: 'Öğe 2' },
+        { id: 1, city: 'Los Angeles', temperature: '-10°C', imageSource: require('../../assets/snowy-night.png')},
+        { id: 2, city: 'New York', temperature: '-5°C', imageSource: require('../../assets/snowy-night.png')},
+        { id: 2, city: 'Moscow', temperature: '-20°C', imageSource: require('../../assets/snowy-night.png')},
 
 
     ]);
@@ -37,8 +36,16 @@ const FavoriteCities = () => {
             >
                 <Image source={require('../../assets/moon.png')} style={{ width: 25, height: 25 }} />
                 <Text style={styles.dayTitle}>monday 29 , march</Text>
+               
                 <ScrollView style={styles.contentContainer}>
-                    {data.map(renderListItem)}
+                    {data.map(item => (
+                        <CityCard
+                            key={item.id}
+                            city={item.city}
+                            temperature={item.temperature}
+                            imageSource={item.imageSource}
+                        />
+                    ))}
                 </ScrollView>
             </LinearGradient>
         </SafeAreaView>
@@ -58,7 +65,7 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     dayTitle: {
-        fontFamily: 'SF Pro Bold',
+
         color: "white"
 
     }
