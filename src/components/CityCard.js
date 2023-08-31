@@ -10,17 +10,19 @@ const CityCard = ({ city, temperature, imageSource }) => (
     <View >
         <LinearGradient style={styles.cityCard}
             colors={['transparent', 'rgba(255,255,255,0.1)']}
-            start={{ x: 0.5, y: 3 }}
+            start={{ x: 0.5, y: 2 }}
             end={{ x: 0.4, y: 0.5 }}
         >
 
             <View style={styles.cityNameCard} >
+                <Image source={imageSource} style={{ width: 40, height: 50 }} />
                 <Text style={styles.cardText}>{city}</Text>
                 <Text style={styles.cardText}>{temperature}</Text>
-                <Image source={imageSource} style={{ width: 40, height: 40 }} />
+
+
             </View>
 
-            <View style = {styles.citySituation}>
+            <View style={styles.citySituation}>
                 <View style={styles.cityDetails}>
                     <Text style={styles.cardDetailsSituation}>Wind</Text>
                     <Text style={styles.cardDetailsSituationThing}>9 km/h </Text>
@@ -33,7 +35,7 @@ const CityCard = ({ city, temperature, imageSource }) => (
                     <Text style={styles.cardDetailsSituation}>Humidith</Text>
                     <Text style={styles.cardDetailsSituationThing}> %60 </Text>
                 </View>
-            
+
             </View>
         </LinearGradient>
     </View >
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
     cardText: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 19
+        fontSize: 22
     },
     cityDetails: {
 
@@ -72,10 +74,10 @@ const styles = StyleSheet.create({
         color: '#DCDBDB',
         fontSize: 18
     },
-    citySituation  :{
-        flexDirection : 'row',
-        justifyContent: 'space-between', 
-        paddingTop : 10
+    citySituation: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingTop: 10
     }
 })
 export default CityCard;
