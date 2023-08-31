@@ -9,28 +9,35 @@ const CityCard = ({ city, temperature, imageSource }) => (
 
     <View >
         <LinearGradient style={styles.cityCard}
-            colors={['#042361', '#00000']}
-            start={{ x: 1, y: 0 }}
-            end={{ x: 0.5, y: 2 }}
+            colors={['transparent', 'rgba(255,255,255,0.1)']}
+            start={{ x: 2, y: 1 }}
+            end={{ x: 0.5, y: 0 }}
+            shadow
         >
 
-        <View style={styles.cityNameCard} >
-            <Text style={styles.cardText}>{city}</Text>
-            <Text style={styles.cardText}>{temperature}</Text>
-            <Image source={imageSource} style={{ width: 40, height: 40 }} />
-        </View>
+            <View style={styles.cityNameCard} >
+                <Text style={styles.cardText}>{city}</Text>
+                <Text style={styles.cardText}>{temperature}</Text>
+                <Image source={imageSource} style={{ width: 40, height: 40 }} />
+            </View>
 
-        <View style={styles.cityDetails}>
-            <Text style={styles.cardDetailsSituation}>Wind</Text>
-            <Text style={styles.cardDetailsSituationThing}>9 km/h </Text>
-        </View>
-    </LinearGradient>
+            <View style = {styles.citySituation}>
+                <View style={styles.cityDetails}>
+                    <Text style={styles.cardDetailsSituation}>Wind</Text>
+                    <Text style={styles.cardDetailsSituationThing}>9 km/h </Text>
+                </View>
+                <View style={styles.cityDetails}>
+                    <Text style={styles.cardDetailsSituation}>Rain</Text>
+                    <Text style={styles.cardDetailsSituationThing}> %3 </Text>
+                </View>
+                <View style={styles.cityDetails}>
+                    <Text style={styles.cardDetailsSituation}>Humidith</Text>
+                    <Text style={styles.cardDetailsSituationThing}> %60 </Text>
+                </View>
+            
+            </View>
+        </LinearGradient>
     </View >
-    
-
-
-
-
 
 
 )
@@ -39,10 +46,11 @@ const styles = StyleSheet.create({
     cityCard: {
         flexDirection: 'column',
         alignItems: 'stretch',
-        padding: 10,
-        backgroundColor: '#083D6F',
+        padding: 20,
         borderRadius: 20,
         margin: 20,
+        shadowColor: 'white',
+        shadowOpacity: 0.2
     },
 
     cityNameCard: {
@@ -52,7 +60,8 @@ const styles = StyleSheet.create({
     cardText: {
         marginLeft: 10,
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 19
     },
     cityDetails: {
 
@@ -64,6 +73,11 @@ const styles = StyleSheet.create({
     cardDetailsSituationThing: {
         color: '#DCDBDB',
         fontSize: 16
+    },
+    citySituation  :{
+        flexDirection : 'row',
+        justifyContent: 'space-between', 
+        paddingTop : 10
     }
 })
 export default CityCard;
