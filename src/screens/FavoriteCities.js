@@ -27,10 +27,10 @@ const FavoriteCities = () => {
 
     return (
         <LinearGradient
-            colors={['#042361', '#15E1D5']}
+            colors={['#042361', '#074B79', '#0C849C', '#0E99A9']}
             style={styles.safeAreaGradient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
+            start={{ x: 1, y: 0.2 }}
+            end={{ x: 0.6, y: 0.8 }}
         >
             <SafeAreaView style={styles.container}>
 

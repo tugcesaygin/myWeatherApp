@@ -10,9 +10,8 @@ const CityCard = ({ city, temperature, imageSource }) => (
     <View >
         <LinearGradient style={styles.cityCard}
             colors={['transparent', 'rgba(255,255,255,0.1)']}
-            start={{ x: 2, y: 1 }}
-            end={{ x: 0.5, y: 0 }}
-           
+            start={{ x: 0.5, y: 3 }}
+            end={{ x: 0.4, y: 0.5 }}
         >
 
             <View style={styles.cityNameCard} >
