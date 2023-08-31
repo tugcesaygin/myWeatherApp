@@ -29,11 +29,11 @@ const CityCard = ({ city, temperature, imageSource }) => (
                 </View>
                 <View style={styles.cityDetails}>
                     <Text style={styles.cardDetailsSituation}>Rain</Text>
-                    <Text style={styles.cardDetailsSituationThing}> %3 </Text>
+                    <Text style={styles.cardDetailsSituationThing}>%3</Text>
                 </View>
                 <View style={styles.cityDetails}>
                     <Text style={styles.cardDetailsSituation}>Humidith</Text>
-                    <Text style={styles.cardDetailsSituationThing}> %60 </Text>
+                    <Text style={styles.cardDetailsSituationThing}>%60</Text>
                 </View>
 
             </View>
