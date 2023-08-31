@@ -6,9 +6,9 @@ import CityCard from '../components/CityCard'
 const FavoriteCities = () => {
 
     const [data, setData] = useState([
-        { id: 1, city: 'Los Angeles', temperature: '-10°C', imageSource: require('../../assets/snowy-night.png')},
-        { id: 2, city: 'New York', temperature: '-5°C', imageSource: require('../../assets/snowy-night.png')},
-        { id: 2, city: 'Moscow', temperature: '-20°C', imageSource: require('../../assets/snowy-night.png')},
+        { id: 1, city: 'Los Angeles', temperature: '-10°C', imageSource: require('../../assets/snowy-night.png') },
+        { id: 2, city: 'New York', temperature: '-5°C', imageSource: require('../../assets/snowy-night.png') },
+        { id: 2, city: 'Moscow', temperature: '-20°C', imageSource: require('../../assets/snowy-night.png') },
 
 
     ]);
@@ -26,17 +26,18 @@ const FavoriteCities = () => {
 
 
     return (
+        <LinearGradient
+            colors={['#042361', '#15E1D5']}
+            style={styles.safeAreaGradient}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+        >
+            <SafeAreaView style={styles.container}>
 
-        <SafeAreaView style={styles.container}>
-            <LinearGradient
-                colors={['#042361', '#15E1D5']}
-                style={styles.safeAreaGradient}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-            >
-                <Image source={require('../../assets/moon.png')} style={{ width: 25, height: 25 }} />
-                <Text style={styles.dayTitle}>monday 29 , march</Text>
-               
+                <View style={styles.cardHeader}>
+                    <Image source={require('../../assets/moon.png')} style={{ width: 25, height: 25 }} />
+                    <Text style={styles.dayTitle}>monday 29 , march</Text>
+                </View>
                 <ScrollView style={styles.contentContainer}>
                     {data.map(item => (
                         <CityCard
@@ -47,9 +48,9 @@ const FavoriteCities = () => {
                         />
                     ))}
                 </ScrollView>
-            </LinearGradient>
-        </SafeAreaView>
 
+            </SafeAreaView>
+        </LinearGradient>
     )
 
 }
@@ -65,9 +66,17 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     dayTitle: {
+        paddingTop : 3 ,
+        color: "white",
+        fontSize : 16,
+        fontWeight : 'bold',
+        paddingLeft : 5
 
-        color: "white"
-
+    },
+    cardHeader: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 10
     }
 
 })

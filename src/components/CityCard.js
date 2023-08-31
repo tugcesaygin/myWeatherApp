@@ -12,7 +12,7 @@ const CityCard = ({ city, temperature, imageSource }) => (
             colors={['transparent', 'rgba(255,255,255,0.1)']}
             start={{ x: 2, y: 1 }}
             end={{ x: 0.5, y: 0 }}
-            shadow
+           
         >
 
             <View style={styles.cityNameCard} >
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     cardText: {
-        marginLeft: 10,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 19
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     },
     cardDetailsSituationThing: {
         color: '#DCDBDB',
-        fontSize: 16
+        fontSize: 18
     },
     citySituation  :{
         flexDirection : 'row',
