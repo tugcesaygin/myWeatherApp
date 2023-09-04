@@ -1,5 +1,5 @@
 import React from "react"
-import { SafeAreaView, StyleSheet, View, Text, Image, Button } from 'react-native'
+import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 
@@ -36,9 +36,14 @@ const Home = () => {
                     </View>
                 </View>
 
-                <Button title="Click Me" style={styles.moreCitiesButton}>
-                    Click Me
-                </Button>
+                <TouchableOpacity
+                    style={styles.homeButton}
+                    onPress={() => {
+                      
+                    }}
+                >
+                    <Text style={styles.homeButtonText}>Diğer Favoriler</Text>
+                </TouchableOpacity>
 
                 <View style={styles.citySituation}>
                     <View style={styles.cityDetails}>
@@ -56,11 +61,11 @@ const Home = () => {
 
                 </View>
 
-                <View style = {styles.bottomHeader}>
-                    
+                <View style={styles.bottomHeader}>
+
                     <Image source={require('../../assets/night-wind.png')} style={{ width: 40, height: 40 }} />
                     <Image source={require('../../assets/night-storm.png')} style={{ width: 40, height: 40 }} />
-                    <Text style = {styles.bottomHeaderText}>monday 20, march</Text>
+                    <Text style={styles.bottomHeaderText}>monday 20, march</Text>
                     <Image source={require('../../assets/snow-cloud.png')} style={{ width: 40, height: 40 }} />
                     <Image source={require('../../assets/cloudy.png')} style={{ width: 40, height: 40 }} />
 
@@ -73,18 +78,37 @@ const Home = () => {
 }
 
 const styles = StyleSheet.create({
+
     safeAreaGradient: {
         flex: 1,
     },
+
+    homeButton: {
+        backgroundColor: '#1A6893',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        alignSelf: 'center',
+    },
+
+    homeButtonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+
+
     homeText: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 32,
 
     },
+
     homeCityContainer: {
         margin: 60
     },
+
     homeCityDetails: {
         alignItems: 'center',
         paddingBottom: 20
@@ -97,6 +121,7 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         justifyContent: 'center'
     },
+
     homeTempreture: {
         flexDirection: 'row',
         justifyContent: 'center'
@@ -115,27 +140,39 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingTop: 20
     },
+
     homeTempretureDegree: {
         color: 'white',
         fontSize: 80,
         fontWeight: 'bold'
 
     },
+
+    buttonStyle: {
+        color: 'red',
+        marginTop: 20,
+        padding: 20,
+        backgroundColor: 'green'
+    },
+
     feelsLike: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 16,
 
     },
+
     feelsLikeDegree: {
         color: 'white',
         fontSize: 26,
         fontWeight: 'bold',
         paddingTop: 3
     },
+
     moreCitiesButton: {
         backgroundColor: 'white'
     },
+
     citySituation: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -143,28 +180,33 @@ const styles = StyleSheet.create({
         margin: 40,
 
     },
+
     cardDetailsSituation: {
         color: '#DCDBDB',
         justifyContent: 'center'
 
     },
+
     cardDetailsSituationThing: {
         color: '#DCDBDB',
         fontSize: 18,
 
     },
+
     cityDetails: {
         alignItems: 'center'
     },
-    bottomHeader : {
-        flexDirection : 'row',
+
+    bottomHeader: {
+        flexDirection: 'row',
         justifyContent: 'space-between',
-        margin : 40
+        margin: 40
     },
-    bottomHeaderText : {
-        color : 'white',
-        fontWeight : 'bold',
-        alignSelf : 'center'
+    
+    bottomHeaderText: {
+        color: 'white',
+        fontWeight: 'bold',
+        alignSelf: 'center'
     }
 
 })
