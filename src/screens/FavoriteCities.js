@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
-import { StyleSheet, ScrollView, SafeAreaView, View, Text, Image } from 'react-native'
+import { StyleSheet, ScrollView, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import CityCard from '../components/CityCard'
+import CurrentWeather from './CurrentWeather'
+import UpcomingWeather from './UpcomingWeather'
+import City from './City'
+import { Button } from 'react-native-web'
+import {Icon} from '@expo/vector-icons'
+
+
 
 const FavoriteCities = () => {
 
     const [data, setData] = useState([
-        { id: 1, city: 'Los Angeles', temperature: '-10°C', imageSource: require('../../assets/night-storm.png') },
+        { id: 1, city: 'Florida', temperature: '10°C', imageSource: require('../../assets/night-storm.png') },
         { id: 2, city: 'Istanbul', temperature: '-5°C', imageSource: require('../../assets/snow-cloud.png') },
         { id: 2, city: 'Moscow', temperature: '-20°C', imageSource: require('../../assets/snowflake.png') },
         { id: 2, city: 'New York', temperature: '-5°C', imageSource: require('../../assets/night-wind.png') },
@@ -15,11 +22,14 @@ const FavoriteCities = () => {
 
     ]);
 
+
+
+
     const renderListItem = item => (
         <View key={item.id} style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}>
 
-            <Text style={{ marginLeft: 10 }}>Los Angles</Text>
-            <Text>-10°C</Text>
+            <Text >Florida</Text>
+            <Text>10°C</Text>
             <Image source={require('../../assets/snowy-night.png')} style={{ width: 40, height: 40 }} />
         </View>
 
@@ -39,6 +49,7 @@ const FavoriteCities = () => {
                 <View style={styles.cardHeader}>
                     <Image source={require('../../assets/moon.png')} style={{ width: 30, height: 30 }} />
                     <Text style={styles.dayTitle}>monday 29 , march</Text>
+
                 </View>
                 <ScrollView style={styles.contentContainer}>
                     {data.map(item => (
@@ -68,17 +79,17 @@ const styles = StyleSheet.create({
         flexGrow: 1,
     },
     dayTitle: {
-        paddingTop : 3 ,
+        paddingTop: 3,
         color: "white",
-        fontSize : 16,
-        fontWeight : 'bold',
-        paddingLeft : 5
+        fontSize: 16,
+        fontWeight: 'bold',
+        paddingLeft: 5
 
     },
     cardHeader: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 10
+        justifyContent: 'center'
+
     }
 
 })

@@ -6,12 +6,17 @@ import { useGetWeather } from './src/hooks/useGetWeather'
 import{View ,ActivityIndicator , StyleSheet} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import FavoriteCities from './src/screens/FavoriteCities'
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CurrentWeather from './src/screens/CurrentWeather'
+import UpcomingWeather from './src/screens/UpcomingWeather'
+import City from './src/screens/City'
+import Search from './src/screens/Search'
+import Home from './src/screens/Home'
 const App = () => {
  
  const [loading, error, weather] = useGetWeather()
  console.log(loading, error,weather)
-
+ const Tab = createBottomTabNavigator();
 
 
   if (weather){
@@ -30,7 +35,9 @@ const App = () => {
 
   return (
     <NavigationContainer>
-     <FavoriteCities/>
+    
+       <Home/>
+
     </NavigationContainer>
   )
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import CityCard from '../components/CityCard'
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,6 +10,8 @@ import {
   ImageBackground
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
+
 
 const DATA = [
   {
@@ -24,7 +27,7 @@ const DATA = [
     ]
   },
   {
-    dt_txt: '2023-02-18 15:00:00',
+    dt_txt: '2023-02-19 15:00:00',
     main: {
       temp_max: 8.55,
       temp_min: 7.55
@@ -36,7 +39,7 @@ const DATA = [
     ]
   },
   {
-    dt_txt: '2023-02-18 17:00:00',
+    dt_txt: '2023-02-20 17:00:00',
     main: {
       temp_max: 8.55,
       temp_min: 7.55
@@ -64,6 +67,7 @@ const Item = (props) => {
 
 const UpcomingWeather = () => {
   const renderItem = ({ item }) => (
+   
     <Item
       condition={item.weather[0].main}
       dt_txt={item.dt_txt}
@@ -72,6 +76,7 @@ const UpcomingWeather = () => {
     />
   )
   return (
+   
     <SafeAreaView style={styles.container}>
       <Text>Upcoming Weather</Text>
       <ImageBackground

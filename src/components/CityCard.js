@@ -15,11 +15,9 @@ const CityCard = ({ city, temperature, imageSource }) => (
         >
 
             <View style={styles.cityNameCard} >
-                <Image source={imageSource} style={{ width: 40, height: 50 }} />
                 <Text style={styles.cardText}>{city}</Text>
                 <Text style={styles.cardText}>{temperature}</Text>
-
-
+                <Image source={imageSource} style={{ width: 40, height: 50 }} />     
             </View>
 
             <View style={styles.citySituation}>
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         padding: 20,
         borderRadius: 20,
-        margin: 20,
+        margin: 15,
         shadowColor: 'white',
         shadowOpacity: 0.2
     },
@@ -61,7 +59,8 @@ const styles = StyleSheet.create({
     cardText: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 22
+        fontSize: 22,
+        justifyContent : 'flex-start'
     },
     cityDetails: {
 
