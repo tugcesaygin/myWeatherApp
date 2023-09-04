@@ -58,11 +58,11 @@ const Home = () => {
 
                 <View style = {styles.bottomHeader}>
                     
-                    <Image source={require('../../assets/night-storm.png')} style={{ width: 40, height: 40 }} />
+                    <Image source={require('../../assets/night-wind.png')} style={{ width: 40, height: 40 }} />
                     <Image source={require('../../assets/night-storm.png')} style={{ width: 40, height: 40 }} />
                     <Text style = {styles.bottomHeaderText}>monday 20, march</Text>
-                    <Image source={require('../../assets/night-storm.png')} style={{ width: 40, height: 40 }} />
-                    <Image source={require('../../assets/night-storm.png')} style={{ width: 40, height: 40 }} />
+                    <Image source={require('../../assets/snow-cloud.png')} style={{ width: 40, height: 40 }} />
+                    <Image source={require('../../assets/cloudy.png')} style={{ width: 40, height: 40 }} />
 
                 </View>
 
