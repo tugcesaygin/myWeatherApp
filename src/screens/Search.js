@@ -1,8 +1,8 @@
 import React from 'react'
+import { StyleSheet, SafeAreaView, Text,View , FlatList,Platform,ActivityIndicator } from 'react-native'
+import { SearchBar } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient'
-
-
-import { SafeAreaView } from 'react-native-safe-area-context'
+import 'react-native-gesture-handler'
 
 const Search = () => {
     return (
@@ -12,12 +12,20 @@ const Search = () => {
             start={{ x: 1, y: 0.2 }}
         >
             <SafeAreaView>
-                
+
             </SafeAreaView>
 
         </LinearGradient >
     )
 }
+
+
+
+const styles = StyleSheet.create({
+    safeAreaGradient: {
+        flex: 1,
+    }
+})
 
 
 

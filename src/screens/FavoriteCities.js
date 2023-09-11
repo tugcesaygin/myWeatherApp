@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import { StyleSheet, ScrollView, SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native'
+import { ScrollView, SafeAreaView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import CityCard from '../components/CityCard'
 import CurrentWeather from './CurrentWeather'
 import UpcomingWeather from './UpcomingWeather'
 import City from './City'
 import { Button } from 'react-native-web'
-import {Icon} from '@expo/vector-icons'
+import { Icon } from '@expo/vector-icons'
 
 
 
-const FavoriteCities = () => {
+const FavoriteCities = (props) => {
 
     const [data, setData] = useState([
         { id: 1, city: 'Florida', temperature: '10°C', imageSource: require('../../assets/night-storm.png') },
@@ -45,11 +45,18 @@ const FavoriteCities = () => {
             end={{ x: 0.6, y: 0.8 }}
         >
             <SafeAreaView style={styles.container}>
-
                 <View style={styles.cardHeader}>
-                    <Image source={require('../../assets/moon.png')} style={{ width: 30, height: 30 }} />
-                    <Text style={styles.dayTitle}>monday 29 , march</Text>
-
+                    <View style = {{flexDirection : 'row'}}>
+                        <Image source={require('../../assets/moon.png')} style={{ width: 30, height: 30 }} />
+                        <Text style={styles.dayTitle}>monday 29 , march</Text>
+                    </View>
+                    
+                    <TouchableOpacity
+                     onPress={() => props.navigation.navigate('Search')}
+                     
+                    >
+                        <Image source = {require ('../../assets/add2.png')} />
+                    </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.contentContainer}>
                     {data.map(item => (

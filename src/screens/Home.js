@@ -1,10 +1,28 @@
 import React from "react"
-import { SafeAreaView, StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
+import { SafeAreaView, StyleSheet, View, Text, Image} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useNavigation } from '@react-navigation/native';
+import FavoriteCities from "./FavoriteCities";
+import { weatherType } from '../utilities/weatherType'
 
+const Home = ({weatherData}) => {
 
+    const { name,
+        main: { temp, feels_like, humidity },
+        weather,
+        wind: { speed } 
+    } = weatherData;
+    const {
+  
+        homeCityLabel,
 
-const Home = () => {
+      } = styles
+    
+    
+    const weatherCondition = weather[0].main
+
+    console.log(weatherData);
+
     return (
         <LinearGradient
             colors={['#042361', '#074B79', '#0C849C', '#0E99A9']}
@@ -22,41 +40,30 @@ const Home = () => {
                 <View style={styles.homeCityContainer}>
 
                     <View style={styles.homeCityDetails}>
-                        <Text style={styles.homeCityLabel}>Los Angeles</Text>
+                        <Text style={styles.homeCityLabel}>{name}</Text>
                         <Image source={require('../../assets/night-storm.png')} style={{ width: 80, height: 80 }} />
                     </View>
 
                     <View style={styles.homeTempreture}>
-                        <Text style={styles.homeTempretureDegree}>-10°C</Text>
+                        <Text style={styles.homeTempretureDegree}>{temp}°C</Text>
                         <View style={styles.homeTempretureDetail}>
                             <Text style={styles.feelsLike}>Feels like</Text>
-                            <Text style={styles.feelsLikeDegree}>13°C</Text>
+                            <Text style={styles.feelsLikeDegree}>{feels_like} °C</Text>
                         </View>
 
                     </View>
                 </View>
 
-                <TouchableOpacity
-                    style={styles.homeButton}
-                    onPress={() => {
-                      
-                    }}
-                >
-                    <Text style={styles.homeButtonText}>Diğer Favoriler</Text>
-                </TouchableOpacity>
-
+              
                 <View style={styles.citySituation}>
                     <View style={styles.cityDetails}>
                         <Text style={styles.cardDetailsSituation}>Wind</Text>
-                        <Text style={styles.cardDetailsSituationThing}>9 km/h </Text>
+                        <Text style={styles.cardDetailsSituationThing}>{`${speed} km/h`}</Text>
                     </View>
-                    <View style={styles.cityDetails}>
-                        <Text style={styles.cardDetailsSituation}>Rain</Text>
-                        <Text style={styles.cardDetailsSituationThing}>%3</Text>
-                    </View>
+                  
                     <View style={styles.cityDetails}>
                         <Text style={styles.cardDetailsSituation}>Humidith</Text>
-                        <Text style={styles.cardDetailsSituationThing}>%60</Text>
+                        <Text style={styles.cardDetailsSituationThing}>%{`${humidity}`}</Text>
                     </View>
 
                 </View>
@@ -87,7 +94,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1A6893',
         paddingVertical: 10,
         paddingHorizontal: 20,
-        borderRadius: 5,
+        borderRadius: 15,
         alignSelf: 'center',
     },
 
@@ -124,7 +131,9 @@ const styles = StyleSheet.create({
 
     homeTempreture: {
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginLeft : 40,
+        marginRight : 40
     },
 
     homeCityLabel: {
@@ -143,16 +152,10 @@ const styles = StyleSheet.create({
 
     homeTempretureDegree: {
         color: 'white',
-        fontSize: 80,
-        fontWeight: 'bold'
+        fontSize: 50,
+        fontWeight: 'bold',
+       paddingTop : 20
 
-    },
-
-    buttonStyle: {
-        color: 'red',
-        marginTop: 20,
-        padding: 20,
-        backgroundColor: 'green'
     },
 
     feelsLike: {
@@ -175,21 +178,25 @@ const styles = StyleSheet.create({
 
     citySituation: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         paddingTop: 10,
-        margin: 40,
+        justifyContent : 'space-between', 
+        marginLeft : 40,
+        marginRight : 40
 
     },
 
     cardDetailsSituation: {
-        color: '#DCDBDB',
-        justifyContent: 'center'
-
+        color: '#F4F2F2',
+        justifyContent: 'center',
+        marginLeft : 40,
+        marginRight: 40,
+        marginTop: 20
     },
 
     cardDetailsSituationThing: {
-        color: '#DCDBDB',
+        color: 'white',
         fontSize: 18,
+        fontWeight: 'bold'
 
     },
 
@@ -202,7 +209,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         margin: 40
     },
-    
+
     bottomHeaderText: {
         color: 'white',
         fontWeight: 'bold',

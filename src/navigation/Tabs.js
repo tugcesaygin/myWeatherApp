@@ -5,6 +5,8 @@ import CurrentWeather from '../screens/CurrentWeather'
 import UpcomingWeather from '../screens/UpcomingWeather'
 import City from '../screens/City'
 import { Feather } from '@expo/vector-icons'
+import Home from '../screens/Home'
+import FavoriteCities from '../screens/FavoriteCities'
 
 const Tab = createBottomTabNavigator()
 
@@ -13,34 +15,34 @@ const Tabs = ({ weather }) => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#042361',
+        tabBarInactiveTintColor: 'white',
         tabBarStyle: {
-          backgroundColor: 'lightblue'
+          backgroundColor: '#0E99A9'
         },
         headerStyle: {
-          backgroundColor: 'lightblue'
+          backgroundColor: '#042361'
         },
         headerTitleStyle: {
           fontWeight: 'bold',
           fontSize: 25,
-          color: 'tomato'
+          color: 'white'
         }
       }}
     >
       <Tab.Screen
-        name={'Current'}
+        name={'Home'}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
               name={'droplet'}
               size={25}
-              color={focused ? 'tomato' : 'black'}
+              color={focused ? '#042361' : 'white'}
             />
           )
         }}
       >
-        {() => <CurrentWeather weatherData={weather.list[0]} />}
+        {() => <Home weatherData={weather.list[0]} />}
       </Tab.Screen>
       <Tab.Screen
         name={'Upcoming'}
@@ -49,7 +51,7 @@ const Tabs = ({ weather }) => {
             <Feather
               name={'clock'}
               size={25}
-              color={focused ? 'tomato' : 'black'}
+              color={focused ? '#042361' : 'white'}
             />
           )
         }}
@@ -57,13 +59,27 @@ const Tabs = ({ weather }) => {
         {() => <UpcomingWeather weatherData={weather.list} />}
       </Tab.Screen>
       <Tab.Screen
+        name={'Favorites'}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name={'heart'}
+              size={25}
+              color={focused ? '#042361' : 'white'}
+            />
+          )
+        }}
+      >
+        {() => <FavoriteCities weatherData={weather.city} />}
+      </Tab.Screen>
+      <Tab.Screen
         name={'City'}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-              name={'home'}
+              name={'heart'}
               size={25}
-              color={focused ? 'tomato' : 'black'}
+              color={focused ? '#042361' : 'white'}
             />
           )
         }}
